@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Conversation AI</title>
     
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@gradio/client@latest/dist/index.js"></script>
-</head>
-<body style="margin: 0; padding: 0;">
-
+    <!-- 1. Load the Polyfill first to handle environments where customElements might be null or missing -->
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.8.0/webcomponents-loader.js"></script>
-    <gradio-app 
-  src="https://agrawalmanish4u-career-conversation.hf.space">
-</gradio-app>
+
+    <!-- 2. Use the dedicated Gradio Web Component script instead of the client library -->
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.44.1/gradio.js"></script>
+</head>
+<body style="margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column;">
+
+    <!-- 3. The custom element will now be recognized and rendered by the script above -->
+    <gradio-app src="https://agrawalmanish4u-career-conversation.hf.space"></gradio-app>
 
 </body>
 </html>
