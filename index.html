@@ -53,4 +53,26 @@
             // Hardware permissions required by mobile devices to execute inside frames
             iframe.setAttribute('allow', 'microphone; camera; clipboard-write; encrypted-media; autoplay;');
             
+            // Core sandbox tokens that Safari requires to lift Cross-Origin restrictions
+            iframe.setAttribute('sandbox', 'allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads allow-storage-access-by-user-activation');
+
+            // Inject into the DOM only after the        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container" id="wrapper">
+        </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('wrapper');
+            const iframe = document.createElement('iframe');
+            
+            // Explicitly points to the Hugging Face direct cloud cluster path
+            iframe.src = "https://agrawalmanish4u-career-conversation.hf.space";
+            
+            // Hardware permissions required by mobile devices to execute inside frames
+            iframe.setAttribute('allow', 'microphone; camera; clipboard-write; encrypted-media; autoplay;');
+            
             // Core
