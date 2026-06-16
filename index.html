@@ -2,27 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Career Conversation AI</title>
     <style>
+        /* Force full height and prevent mobile bounce breaking the canvas */
         html, body { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
             width: 100%;
-            background-color: #f9fafb; 
+            overflow: hidden; 
+            background-color: #f9fafb;
+            /* Webkit fix for older iOS Safari engines */
+            -webkit-overflow-scrolling: touch; 
         }
-        /* Style the web component to fill the screen universally */
-        gradio-app {
+        
+        /* The container wrapper forces Safari to respect absolute boundary layers */
+        .app-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            display: block;
         }
     </style>
-    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.19.2/gradio.js"></script>
 </head>
 <body>
 
-    <gradio-app src="https://agrawalmanish4u-career-conversation.hf.space"></gradio-app>
+    <div class="app-container" id="wrapper">
+        </div>
 
-</body>
-</html>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('wrapper');
+            const iframe = document.createElement('iframe');
+            
+            // Explicitly points to the Hugging Face direct cloud cluster path
+            iframe.src = "https://agrawalmanish4u-career-conversation.hf.space";
+            
+            // Hardware permissions required by mobile devices to execute inside frames
+            iframe.setAttribute('allow', 'microphone; camera; clipboard-write; encrypted-media; autoplay;');
+            
+            // Core
