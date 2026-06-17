@@ -2,77 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Conversation AI</title>
     <style>
-        /* Force full height and prevent mobile bounce breaking the canvas */
-        html, body { 
+        /* Force the iframe to occupy 100% of the browser window without scrollbars */
+        body, html { 
             margin: 0; 
             padding: 0; 
             height: 100%; 
-            width: 100%;
             overflow: hidden; 
-            background-color: #f9fafb;
-            /* Webkit fix for older iOS Safari engines */
-            -webkit-overflow-scrolling: touch; 
+            background-color: #f9fafb; /* Matches standard UI backgrounds */
         }
-        
-        /* The container wrapper forces Safari to respect absolute boundary layers */
-        .app-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
         iframe { 
             width: 100%; 
             height: 100%; 
             border: none; 
-            display: block;
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container" id="wrapper">
-        </div>
+    <!-- Bypasses the Gradio Space API Fetcher entirely -->
+    <iframe src="https://agrawalmanish4u-career-conversation.hf.space"></iframe>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('wrapper');
-            const iframe = document.createElement('iframe');
-            
-            // Explicitly points to the Hugging Face direct cloud cluster path
-            iframe.src = "https://agrawalmanish4u-career-conversation.hf.space";
-            
-            // Hardware permissions required by mobile devices to execute inside frames
-            iframe.setAttribute('allow', 'microphone; camera; clipboard-write; encrypted-media; autoplay;');
-            
-            // Core sandbox tokens that Safari requires to lift Cross-Origin restrictions
-            iframe.setAttribute('sandbox', 'allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-downloads allow-storage-access-by-user-activation');
-
-            // Inject into the DOM only after the        }
-    </style>
-</head>
-<body>
-
-    <div class="app-container" id="wrapper">
-        </div>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('wrapper');
-            const iframe = document.createElement('iframe');
-            
-            // Explicitly points to the Hugging Face direct cloud cluster path
-            iframe.src = "https://agrawalmanish4u-career-conversation.hf.space";
-            
-            // Hardware permissions required by mobile devices to execute inside frames
-            iframe.setAttribute('allow', 'microphone; camera; clipboard-write; encrypted-media; autoplay;');
-            
-            // Core
+</body>
+</html>
